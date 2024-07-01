@@ -1,15 +1,21 @@
 from datetime import datetime
-from habit_tool import break_habit
+from habit_tool import get_habit
 import pandas as pd
 from tabulate import tabulate
 
-habits = [
-    break_habit("Gym", datetime(2024, 6, 1), duration_per_habit=60, frequency_per_habit=5),
-    break_habit("Skin care", datetime(2024, 6, 15), duration_per_habit=15, frequency_per_habit=7),
-    break_habit("Vaping", datetime(2024, 6, 5), duration_per_habit=8, frequency_per_habit=7),
-    break_habit("Running", datetime(2024, 6, 20), duration_per_habit=30, frequency_per_habit=3)
+form_habits = [
+    get_habit("Gym", datetime(2024, 6, 1), duration_minutes=60, weekly_frequency=5),
+    get_habit("Skin care", datetime(2024, 6, 15), duration_minutes=15, weekly_frequency=7),
+    get_habit("Running", datetime(2024, 6, 20), duration_minutes=30, weekly_frequency=3)
+]
+break_habits = [
+    get_habit("Vaping", datetime(2024, 6, 5), duration_minutes=8, weekly_frequency=7, form_habit=False),
+    get_habit("Sugar", datetime(2024, 6, 5), duration_minutes=8, weekly_frequency=7, form_habit=False),
+    get_habit("Sleeping in", datetime(2024, 6, 5), duration_minutes=8, weekly_frequency=7, form_habit=False)
 ]
 
-df = pd.DataFrame(habits)
+df_form_habits = pd.DataFrame(form_habits)
+df_break_habits = pd.DataFrame(break_habits)
 
-print(tabulate(df, headers="keys", tablefmt="psql"))
+print(tabulate(df_form_habits, headers="keys", tablefmt="psql"))
+print(tabulate(df_break_habits, headers="keys", tablefmt="psql"))
