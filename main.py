@@ -9,9 +9,9 @@ form_habits = [
     get_habit("Running", datetime(2024, 6, 20), duration_minutes=30, weekly_frequency=3)
 ]
 break_habits = [
-    get_habit("Vaping", datetime(2024, 6, 5), duration_minutes=8, weekly_frequency=7, form_habit=False),
-    get_habit("Sugar", datetime(2024, 6, 5), duration_minutes=8, weekly_frequency=7, form_habit=False),
-    get_habit("Sleeping in", datetime(2024, 6, 5), duration_minutes=8, weekly_frequency=7, form_habit=False)
+    get_habit("Vaping", datetime(2024, 5, 31), duration_minutes=8, weekly_frequency=7, form_habit=False),
+    get_habit("Sugar", datetime(2024, 6, 12), duration_minutes=15, weekly_frequency=7, form_habit=False),
+    get_habit("Sleeping in", datetime(2024, 6, 15), duration_minutes=20, weekly_frequency=6, form_habit=False)
 ]
 
 df_form_habits = pd.DataFrame(form_habits)
