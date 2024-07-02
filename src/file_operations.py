@@ -6,7 +6,7 @@ def get_habit(file_path):
 # return: list of habits or an empty list if an error occurs
   try:
       with open(file_path, 'r') as file:
-        matches = json.load(file)
+        habits = json.load(file)
       return get_habit
   except FileNotFoundError:
      print(f"Error: The file {file_path} does not exist")
@@ -22,7 +22,7 @@ def remove_habit(file_path, habits):
 
    try:
       with open(file_path, 'rm') as file:
-         json.remove(habits, file, indent=4)
+         json.update(habits, file, indent=4)
       print(f"Habit successfully removed from {file_path}")
     except PermissionError:
       print(f"Error: Permission denied to remove.")
