@@ -42,6 +42,7 @@ def add_habits(args):
      # Implement reflect on habit logic
      pass
   
+  # Fuctions 'add habit', perform operations based on user input.
   def add_habit():
      print("\n=== Add a habit ===")
      first_name = input("Enter first name: ").strip()
@@ -69,6 +70,7 @@ habit = {
 save_habit(habit)
 print("Habit added successfully.")
 
+# Fuctions 'remove_habit', perform operations based on user input.
 def remove_habit():
    print("\n=== Remove a Habit ====")
    habits = load_habits()
@@ -87,6 +89,7 @@ def remove_habit():
          save_to_json(habits)
          print(f"Removed habit: {removed_habit['first_name']} {removed_habit['last_name']} - Start Date: {habit['start_date']}, Duration: {habit['duration']} minutes, Frequency: {habit['frequency']} times/week")
 
+# Fuctions 'view_all_habits', perform operations based on user input.
 def view_all_habits():
    print("\n=== View All Habits ===")
    habits = load_habits()
@@ -96,6 +99,7 @@ def view_all_habits():
       for index, habit in enumerate(habits):
          print(f"{index + 1}. {habit['first_name']} {habit['last_name']} - Start Date: {habit['start_date']}, Duration: {habit['duration']} minutes, Frequency: {habit['frequency']} times/week")
 
+# Fuctions 'edit_habits', perform operations based on user input.
 def edit_habit():
    print("\n=== Edit a Habit ===")
    habits = load_habits()

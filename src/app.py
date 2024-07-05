@@ -1,7 +1,7 @@
 import argparse
 from app_operations import *
 
-
+# Prints the menu options for the user to choose from.
 def print_menu():
   print("\n=== Habit Tracker Menu ===")
   print("1. Add a habit")
@@ -10,7 +10,8 @@ def print_menu():
   print("4. Edit habits")
   print("5. Exit")
 
-  def main():
+# Runs a loop where the users can continiously interact with the application based on their menu selections. 
+def main():
     while True:
       print_menu()
       choice = input("Enter your choice (1-5): ").strip()
