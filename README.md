@@ -52,4 +52,6 @@ The habit tracker allows you to efficiently manage your habits through the comma
 
 ‌- GeeksforGeeks. (2020). Serializing JSON data in Python. [online] Available at: https://www.geeksforgeeks.org/serializing-json-data-in-python/.
 
+‌- W3schools (2018). Python Dictionaries. [online] W3schools.com. Available at: https://www.w3schools.com/python/python_dictionaries.asp.
+
 ‌
