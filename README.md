@@ -50,4 +50,6 @@ The habit tracker allows you to efficiently manage your habits through the comma
 
 ‌- Aamod (2024). T1W8 Saturday: Testing, Virtual Environment, Python Files, Demo Terminal App. Coder Academy. Available at: https://ait.instructure.com/courses/5351/pages/conference-recordings-term-1-weeks-6-10.
 
+‌- GeeksforGeeks. (2020). Serializing JSON data in Python. [online] Available at: https://www.geeksforgeeks.org/serializing-json-data-in-python/.
+
 ‌
