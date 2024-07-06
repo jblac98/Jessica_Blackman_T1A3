@@ -45,4 +45,7 @@ The habit tracker allows you to efficiently manage your habits through the comma
 
 ![Trello screenshot of features](screenshots/Trello.png)
 
+## References
+- Indently (2021). Creating a Habit Tracker (Backend) in Python Tutorial 2021. [online] YouTube. Available at: https://www.youtube.com/watch?v=snUk2Dx9Bz8&t=19s [Accessed 6 Jul. 2024].
 
+‌
