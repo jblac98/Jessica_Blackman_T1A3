@@ -11,13 +11,22 @@
 ## To deactivate venv
 - `deactivate`
 
-Terminal App:
-Application to track habits. The features:
-- Load habits from a JSON file
-- Display all habits
-- Add a new habit
-- Remove an old habit
-- calculate and display time since, days remaining, minutes saved, minutes spent
-- filter and display priority habits
-- Save personal habits to a JSON file
-- Error handling for user input and file operations
+## Instructions on using the Habit Track terminal applicaiton
+1. If you haven't already, install:
+- pip install pandas
+- pip install tabulate
+
+2. Use the main.py script to start the Habit Tracker
+- python3 src/main.py <command> [option]
+
+3. Add a new habit to the Habit Tracker
+- python3 src/main.py add running --duration 25 --frequency 4
+
+4. Remove an exisiting habit from the Habit Tracker
+- python3 src/main.py remove <habit_name>
+Example: python3 src/main.py remove running
+
+5. View all habits in the Habit Tracker
+- python3 src/main.py view (this will show all the existing habits you have entered)
+
+6. 
