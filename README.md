@@ -29,4 +29,14 @@ Example: python3 src/main.py remove running
 5. View all habits in the Habit Tracker
 - python3 src/main.py view (this will show all the existing habits you have entered)
 
-6. 
+6. Edit an existing habit in the Habit Tracker
+- python3 src/main.py <habit_name> --new_name <new_name> --new_duration <new_duration> --new_frequency <new_frequency>
+Example: python3 src/main.py running --new_duration 35
+
+Additional notes:
+JSON file: All habits are stored in a file called 'data/habits.json'.
+Error handling: Anytime a common error is made such as missing the required argument.
+
+The habit tracker allows you to efficiently manage your habits through the command line. It successfully manages your habits and provides feedback on the actions you have made towards your habit. 
+
+
