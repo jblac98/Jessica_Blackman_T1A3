@@ -125,6 +125,9 @@ class HabitTracker:
         self.save_habits()
 
     def edit_habit(self, name, new_name=None, new_duration=None, new_frequency=None):
+        """
+        To edit an existing habit.
+        """
         habit = next((habit for habit in self.habits if habit.name == name), None)
         if habit:
             if new_name:
@@ -139,6 +142,9 @@ class HabitTracker:
             print(f"Habit '{name}' not found.")
 
 def main():
+    """
+    Main function to run the terminal app - Habit Tracker.
+    """
     tracker = HabitTracker()
     tracker.load_habits()
 
