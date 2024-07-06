@@ -15,6 +15,7 @@
 1. If you haven't already, install:
 - pip install pandas
 - pip install tabulate
+- pip install argparse
 
 2. Use the main.py script to start the Habit Tracker
 - python3 src/main.py <command> [option]
@@ -38,5 +39,8 @@ JSON file: All habits are stored in a file called 'data/habits.json'.
 Error handling: Anytime a common error is made such as missing the required argument.
 
 The habit tracker allows you to efficiently manage your habits through the command line. It successfully manages your habits and provides feedback on the actions you have made towards your habit. 
+
+## Trello
+- The project management tool to assist with managing the progress and timeline of the terminal applicaiton.
 
 
