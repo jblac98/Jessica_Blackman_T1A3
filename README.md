@@ -43,4 +43,6 @@ The habit tracker allows you to efficiently manage your habits through the comma
 ## Trello
 - The project management tool to assist with managing the progress and timeline of the terminal applicaiton.
 
+![Trello screenshot of features](screenshots/Trello.png)
+
 
