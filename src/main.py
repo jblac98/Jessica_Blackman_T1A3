@@ -6,6 +6,14 @@ from tabulate import tabulate
 
 class Habit:
     def __init__(self, name, start_date, frequency_weekly, duration_minutes, form_habit=True):
+        """
+        To create a habit.
+
+        - name of habit
+        - the start date for the habit
+        - how oftern per week the habit is being done
+        - how long in minutes the habit is being performed
+        """
         self.name = name
         self.start_date = start_date
         self.frequency_weekly = frequency_weekly
@@ -13,9 +21,15 @@ class Habit:
         self.form_habit = form_habit
 
     def __str__(self):
+        """
+        Return the name of the habit when the object is printed as a string.
+        """
         return self.name
     
     def serialize(self):
+        """
+        To serialize the habit suitable for a JSON file.
+        """
         return {
             'name': self.name,
             'start_date': self.start_date.strftime('%Y-%m-%d'),  # Serialize datetime to string
@@ -25,6 +39,9 @@ class Habit:
         }
 
     def get_habit_dict(self):
+        """
+        To create a dictionary with calculated fields.
+        """
         time_elapsed = (datetime.now() - self.start_date).total_seconds()
         hours = round(time_elapsed / 60 / 60, 1)
         days = round(hours / 24, 2)
@@ -47,22 +64,38 @@ class Habit:
                     "time_since": hours, "days_remaining": days_to_go, "minutes_saved": minutes_spent}
 
 class HabitTracker:
+    
     def __init__(self):
+        """
+        A list to store habits.
+        """
         self.habits = []
 
     def add_habit(self, name, duration, frequency):
+        """
+        Add a new habit to the tracker. 
+
+        Adds a habit with the fields below. 
+        """
         habit = Habit(name, datetime.now(), duration, frequency)
         self.habits.append(habit)
         print(f"Added new habit: '{name}', duration: '{duration}', frequency: '{frequency}'")
         self.save_habits()
 
     def save_habits(self):
+        """
+        Save the current list of habits to a JSON file. 
+
+        """
         with open('data/habits.json', 'w') as file:
             serialized_habits = [habit.serialize() for habit in self.habits]
             json.dump(serialized_habits, file, indent=4)
 
 
     def load_habits(self):
+        """
+        Load habits from a JSON file into self.habits.  
+        """
         try:
             with open('data/habits.json', 'r') as file:
                 habits_data = json.load(file)
@@ -75,6 +108,9 @@ class HabitTracker:
             self.habits = []
 
     def view_habits(self):
+        """
+        Display all habits in self.habits in a tabular format.
+        """
         if not self.habits:
             print("No habits found.")
         else:
@@ -82,6 +118,9 @@ class HabitTracker:
             print(tabulate(df_form_habits, headers="keys", tablefmt="psql"))
 
     def remove_habit(self, name):
+        """
+        Remove a habit from self.habits by it's name. 
+        """
         self.habits = [habit for habit in self.habits if habit.name != name]
         self.save_habits()
 
