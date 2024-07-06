@@ -48,4 +48,6 @@ The habit tracker allows you to efficiently manage your habits through the comma
 ## References
 - Indently (2021). Creating a Habit Tracker (Backend) in Python Tutorial 2021. [online] YouTube. Available at: https://www.youtube.com/watch?v=snUk2Dx9Bz8&t=19s [Accessed 6 Jul. 2024].
 
+‌- Aamod (2024). T1W8 Saturday: Testing, Virtual Environment, Python Files, Demo Terminal App. Coder Academy. Available at: https://ait.instructure.com/courses/5351/pages/conference-recordings-term-1-weeks-6-10.
+
 ‌
