@@ -8,7 +8,7 @@ import os
 
 
 # Constructing the file path
-file_path = os.path.join('data', 'habits.json')
+file_path = os.path.join('main.py', 'src', 'data', 'habits.json')
 
 class HabitTracker:
     
