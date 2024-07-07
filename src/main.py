@@ -1,6 +1,6 @@
 import argparse
 from datetime import datetime
-import json
+import data, habits.json
 import pandas as pd
 from tabulate import tabulate
 import os
