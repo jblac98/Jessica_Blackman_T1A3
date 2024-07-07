@@ -8,7 +8,7 @@ import os
 
 
 # Constructing the file path
-file_path = os.path.join('data', 'habits.json')
+file_path = os.path.join('src'/'data'/'habits.json')
 
 class HabitTracker:
     
@@ -41,7 +41,7 @@ class HabitTracker:
         Save the current list of habits to a JSON file. 
 
         """
-        with open('data/habits.json', 'w') as file:
+        with open('src'/'data/habits.json', 'w') as file:
             serialized_habits = [habit.serialize() for habit in self.habits]
             json.dump(serialized_habits, file, indent=4)
 
