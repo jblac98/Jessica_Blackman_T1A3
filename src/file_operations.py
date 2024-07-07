@@ -1,4 +1,5 @@
 import json
+import os
 
 def load_habits(file_path):
 # Load habits from a JSON file. 
@@ -15,4 +16,21 @@ def load_habits(file_path):
   except Exception as e:
      print(f"An unexpected error occured: {e}")
      return []
+  
+# File path
+file_path = 'data/habits.json'
+
+# Printing the path to verify the file path
+print("File path:", file_path)
+
+# Attempt to open the file
+try:
+   with open(file_path, 'r') as f:
+      # Process file here 
+      pass
+except FileNotFoundError:
+   print("File not found")
+except IOError as e:
+   print("IOError:", e)
+
 
