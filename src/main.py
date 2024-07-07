@@ -3,6 +3,16 @@ from datetime import datetime
 import json
 import pandas as pd
 from tabulate import tabulate
+import os
+
+# Constructing the file path
+file_path = os.path.join('data', 'habits.json')
+
+# Checking if the file exists
+if os.path.exists(file_path):
+    with open(file_path, 'r') as f:
+        self.habits = json.load(f)
+        print(self.name)
 
 class Habit:
     def __init__(self, name, start_date, frequency_weekly, duration_minutes, form_habit=True):
