@@ -5,14 +5,96 @@ import pandas as pd
 from tabulate import tabulate
 import os
 
+
+
 # Constructing the file path
 file_path = os.path.join('data', 'habits.json')
 
-# Checking if the file exists
-if os.path.exists(file_path):
-    with open(file_path, 'r') as f:
-        self.habits = json.load(f)
-        print(self.name)
+class HabitTracker:
+    
+    def __init__(self):
+        """
+        A list to store habits.
+        """
+        self.habits = []
+    
+    def load_habits(self):
+        if os.path.exists(file_path):
+            with open(file_path, 'r') as f:
+                self.habits = json.load(f)
+                for habit in self.habits:
+                    print(habit['name'])
+
+    def add_habit(self, name, duration, frequency):
+        """
+        Add a new habit to the tracker. 
+
+        Adds a habit with the fields below. 
+        """
+        habit = Habit(name, datetime.now(), duration, frequency)
+        self.habits.append(habit)
+        print(f"Added new habit: '{name}', duration: '{duration}', frequency: '{frequency}'")
+        self.save_habits()
+
+    def save_habits(self):
+        """
+        Save the current list of habits to a JSON file. 
+
+        """
+        with open('data/habits.json', 'w') as file:
+            serialized_habits = [habit.serialize() for habit in self.habits]
+            json.dump(serialized_habits, file, indent=4)
+
+
+    # def load_habits(self):
+        # """
+        # Load habits from a JSON file into self.habits.  
+        # """
+        # try:
+            # with open('data/habits.json', 'r') as file:
+                # habits_data = json.load(file)
+                # self.habits = []
+                # for habit_data in habits_data:
+                    # habit_data['start_date'] = datetime.strptime(habit_data['start_date'], '%Y-%m-%d')
+                    # habit = Habit(**habit_data)
+                    # self.habits.append(habit)
+        # except FileNotFoundError:
+            # self.habits = []
+
+    def view_habits(self):
+        """
+        Display all habits in self.habits in a tabular format.
+        """
+        if not self.habits:
+            print("No habits found.")
+        else:
+            df_form_habits = pd.DataFrame([habit.get_habit_dict() for habit in self.habits])
+            print(tabulate(df_form_habits, headers="keys", tablefmt="psql"))
+
+    def remove_habit(self, name):
+        """
+        Remove a habit from self.habits by it's name. 
+        """
+        self.habits = [habit for habit in self.habits if habit.name != name]
+        self.save_habits()
+
+    def edit_habit(self, name, new_name=None, new_duration=None, new_frequency=None):
+        """
+        To edit an existing habit.
+        """
+        habit = next((habit for habit in self.habits if habit.name == name), None)
+        if habit:
+            if new_name:
+                habit.name = new_name
+            if new_duration:
+                habit.duration_minutes = new_duration
+            if new_frequency:
+                habit.frequency_weekly = new_frequency
+            self.save_habits()
+            print(f"Habit '{name}' edited successfully.")
+        else:
+            print(f"Habit '{name}' not found.")
+
 
 class Habit:
     def __init__(self, name, start_date, frequency_weekly, duration_minutes, form_habit=True):
@@ -73,90 +155,11 @@ class Habit:
             return {"habit": self.name, "frequency": self.frequency_weekly, "duration": self.duration_minutes,
                     "time_since": hours, "days_remaining": days_to_go, "minutes_saved": minutes_spent}
 
-class HabitTracker:
-    
-    def __init__(self):
-        """
-        A list to store habits.
-        """
-        self.habits = []
-
-    def add_habit(self, name, duration, frequency):
-        """
-        Add a new habit to the tracker. 
-
-        Adds a habit with the fields below. 
-        """
-        habit = Habit(name, datetime.now(), duration, frequency)
-        self.habits.append(habit)
-        print(f"Added new habit: '{name}', duration: '{duration}', frequency: '{frequency}'")
-        self.save_habits()
-
-    def save_habits(self):
-        """
-        Save the current list of habits to a JSON file. 
-
-        """
-        with open('data/habits.json', 'w') as file:
-            serialized_habits = [habit.serialize() for habit in self.habits]
-            json.dump(serialized_habits, file, indent=4)
-
-
-    def load_habits(self):
-        """
-        Load habits from a JSON file into self.habits.  
-        """
-        try:
-            with open('data/habits.json', 'r') as file:
-                habits_data = json.load(file)
-                self.habits = []
-                for habit_data in habits_data:
-                    habit_data['start_date'] = datetime.strptime(habit_data['start_date'], '%Y-%m-%d')
-                    habit = Habit(**habit_data)
-                    self.habits.append(habit)
-        except FileNotFoundError:
-            self.habits = []
-
-    def view_habits(self):
-        """
-        Display all habits in self.habits in a tabular format.
-        """
-        if not self.habits:
-            print("No habits found.")
-        else:
-            df_form_habits = pd.DataFrame([habit.get_habit_dict() for habit in self.habits])
-            print(tabulate(df_form_habits, headers="keys", tablefmt="psql"))
-
-    def remove_habit(self, name):
-        """
-        Remove a habit from self.habits by it's name. 
-        """
-        self.habits = [habit for habit in self.habits if habit.name != name]
-        self.save_habits()
-
-    def edit_habit(self, name, new_name=None, new_duration=None, new_frequency=None):
-        """
-        To edit an existing habit.
-        """
-        habit = next((habit for habit in self.habits if habit.name == name), None)
-        if habit:
-            if new_name:
-                habit.name = new_name
-            if new_duration:
-                habit.duration_minutes = new_duration
-            if new_frequency:
-                habit.frequency_weekly = new_frequency
-            self.save_habits()
-            print(f"Habit '{name}' edited successfully.")
-        else:
-            print(f"Habit '{name}' not found.")
-
 def main():
     """
     Main function to run the terminal app - Habit Tracker.
     """
     tracker = HabitTracker()
-    tracker.load_habits()
 
     parser = argparse.ArgumentParser(description="Simple Habit Tracker")
     parser.add_argument('command', choices=['add', 'remove', 'view', 'edit'], help='Command to execute')
