@@ -1,14 +1,14 @@
 import argparse
 from datetime import datetime
-import data, habits.json
+import json
 import pandas as pd
 from tabulate import tabulate
 import os
 
 
 
-# Constructing the file path
-file_path = os.path.join('src'/'data'/'habits.json')
+# Constructing the file path to habits.json
+file_path = os.path.join('src', 'data', 'habits.json')
 
 class HabitTracker:
     
@@ -41,7 +41,7 @@ class HabitTracker:
         Save the current list of habits to a JSON file. 
 
         """
-        with open('src'/'data/habits.json', 'w') as file:
+        with open(file_path, 'w') as file:
             serialized_habits = [habit.serialize() for habit in self.habits]
             json.dump(serialized_habits, file, indent=4)
 
