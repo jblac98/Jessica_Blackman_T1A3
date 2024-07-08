@@ -12,25 +12,28 @@
 - `deactivate`
 
 ## Instructions on using the Habit Track terminal applicaiton
-1. If you haven't already, install:
+1. Change directory into terminal_app
+- 2024-apr-std/Coder_Academy/jessicablackman_T1A3/terminal_app
+
+2. If you haven't already, install:
 - pip install pandas
 - pip install tabulate
 - pip install argparse
 
-2. Use the main.py script to start the Habit Tracker
+3. Use the main.py script to start the Habit Tracker
 - python3 src/main.py <command> [option]
 
-3. Add a new habit to the Habit Tracker
+4. Add a new habit to the Habit Tracker
 - python3 src/main.py add running --duration 25 --frequency 4
 
-4. Remove an exisiting habit from the Habit Tracker
+5. Remove an exisiting habit from the Habit Tracker
 - python3 src/main.py remove <habit_name>
 Example: python3 src/main.py remove running
 
-5. View all habits in the Habit Tracker
+6. View all habits in the Habit Tracker
 - python3 src/main.py view (this will show all the existing habits you have entered)
 
-6. Edit an existing habit in the Habit Tracker
+7. Edit an existing habit in the Habit Tracker
 - python3 src/main.py <habit_name> --new_name <new_name> --new_duration <new_duration> --new_frequency <new_frequency>
 Example: python3 src/main.py running --new_duration 35
 

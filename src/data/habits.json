@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "name": "running",
+        "start_date": "2024-07-08",
+        "frequency_weekly": 25,
+        "duration_minutes": 4,
+        "form_habit": true
+    }
+]
