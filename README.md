@@ -13,7 +13,7 @@
 
 ## Instructions on using the Habit Track terminal applicaiton
 1. Change directory into terminal_app
-- 2024-apr-std/Coder_Academy/jessicablackman_T1A3/terminal_app
+- cd 2024-apr-std/Coder_Academy/jessicablackman_T1A3/terminal_app
 
 2. If you haven't already, install:
 - pip install pandas
